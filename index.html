@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./style.css" rel="stylesheet" />
+    <link href="https://unpkg.com/@quickey/ui/umd/quickey.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@quickey/core/umd/quickey.core.min.js"></script>
+    <script src="https://unpkg.com/@quickey/ui/umd/quickey.ui.min.js"></script>
+    <title>JS Validator</title>
+</head>
+
+<body>
+    <header>
+        <h1>{JS} Validator</h1>
+        <div class="actions">
+            <button id="shortcutsBtn">⌨️ Shortcuts</button>
+            <button id="clearBtn">🗑 Clear Logs</button>
+            <button id="runBtn" class="primary">🏃🏻‍ Run</button>
+        </div>
+    </header>
+    <div id="app">
+        <pre id="editor" contenteditable="true"></pre>
+        <pre id="console"></pre>
+        <div id="modal"></div>
+    </div>
+    <footer>
+        made with ❤️ by <a href="http://github.com/js-validator">uditalias</a>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>
