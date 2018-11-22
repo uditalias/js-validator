@@ -1,43 +1,27 @@
 (function () {
 
-    const $editor = document.querySelector("#editor");
-    const $modal = document.querySelector("#modal");
-    const $console = document.querySelector("#console");
-    const $shortcutsBtn = document.querySelector("#shortcutsBtn");
-    const $runBtn = document.querySelector("#runBtn");
-    const $clearBtn = document.querySelector("#clearBtn");
+    const $editor = document.querySelector("#editor")
+        , $modal = document.querySelector("#modal")
+        , $console = document.querySelector("#console")
+        , $shortcutsBtn = document.querySelector("#shortcutsBtn")
+        , $runBtn = document.querySelector("#runBtn")
+        , $clearBtn = document.querySelector("#clearBtn")
+        , WELCOME_MESSAGE = `/* enter code here... */\n\n`
+        , interceptedConsoleFnOptions = {
+            log: ["#000000"],
+            error: ["#ff0000"],
+            info: ["#0000ff"]
+        }
+        , interceptKeys = [
+            9, // tab
+            13 // enter
+        ];
+
     let unmountLegend = null;
 
-    Quickey.core.createQuickey({
-        id: "editor",
-        title: "Editor Shortcuts",
-        target: $editor,
-        actions: [{
-            id: "runCode",
-            description: "Run Code",
-            keys: "Ctrl + Shift + R",
-            callback: onRun
-        }, {
-            id: "clearLog",
-            description: "Clear Log",
-            keys: "Ctrl + Shift + C",
-            callback: onClear
-        }]
-    });
-
-    const WELCOME_MESSAGE = `/* enter code here... */\n\n`;
-
-    const interceptedConsoleFnOptions = {
-        log: ["#000000"],
-        error: ["#ff0000"],
-        info: ["#0000ff"]
-    };
-
-    const interceptKeys = [
-        9, // tab
-        13 // enter
-    ];
-
+    /**
+     * Intercept console function
+     */
     console = new Proxy(console, {
         get: (target, prop) => {
             if (prop in interceptedConsoleFnOptions) {
@@ -71,6 +55,7 @@
         ].join('');
 
         const range = document.createRange();
+        
         range.setStart(element.childNodes[0], anchorOffset + 1);
         range.collapse(true);
 
