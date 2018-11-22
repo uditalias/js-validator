@@ -43,7 +43,7 @@
             if (prop in interceptedConsoleFnOptions) {
                 return function (...args) {
                     target[prop](...args);
-                    addLog(...args, interceptedConsoleFnOptions[prop]);
+                    addLog(args, interceptedConsoleFnOptions[prop]);
                 }
             }
 
@@ -110,7 +110,7 @@
             try {
                 Function(codeBlock)();
             } catch (e) {
-                addLog(e, "red");
+                addLog([e], "red");
                 throw e;
             }
         }
