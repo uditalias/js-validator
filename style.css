@@ -107,8 +107,17 @@ pre#editor+pre#console {
 footer {
     padding: 5px;
     border-top: solid 5px var(--border-color);
-    font-size: 8px;
-    color: #333;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+}
+
+footer a {
+    color: #000;
+}
+
+footer > * + * {
+    margin-left: 10px;
 }
 
 #modal {

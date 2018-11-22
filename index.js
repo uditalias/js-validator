@@ -1,5 +1,5 @@
 (function () {
-    
+
     const $editor = document.querySelector("#editor");
     const $modal = document.querySelector("#modal");
     const $console = document.querySelector("#console");
@@ -122,7 +122,7 @@
 
     function addLog(data, color = "#000000") {
         const p = document.createElement("p");
-        p.innerText = data.stack ? data.stack.toString() : data.toString();
+        p.innerText = data.toString();
         p.style.color = color;
         $console.prepend(p);
     }
