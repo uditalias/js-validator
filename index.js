@@ -19,6 +19,23 @@
 
     let unmountLegend = null;
 
+    Quickey.core.createQuickey({
+        id: "editor",
+        title: "Editor Shortcuts",
+        target: $editor,
+        actions: [{
+            id: "runCode",
+            description: "Run Code",
+            keys: "Ctrl + Shift + R",
+            callback: onRun
+        }, {
+            id: "clearLog",
+            description: "Clear Log",
+            keys: "Ctrl + Shift + C",
+            callback: onClear
+        }]
+    });
+
     /**
      * Intercept console function
      */
@@ -55,7 +72,7 @@
         ].join('');
 
         const range = document.createRange();
-        
+
         range.setStart(element.childNodes[0], anchorOffset + 1);
         range.collapse(true);
 
