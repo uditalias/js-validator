@@ -156,7 +156,7 @@
         $modal.classList.add("show");
     }
 
-    addEvent($editor, "paste", onPasteCode)
+    addEvent($editor, "paste", onPasteCode);
     addEvent($editor, "keydown", onEditorKeyDown);
     addEvent($runBtn, "click", onRun);
     addEvent($clearBtn, "click", onClear);
